@@ -25,8 +25,5 @@ public class RapportController {
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 116ba3e3ffe3a27489ea5bbf90d18be52f5b6e1d
 }

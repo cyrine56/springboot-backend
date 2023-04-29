@@ -33,9 +33,7 @@ public class EquipementController {
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
-<<<<<<< HEAD
 
-=======
     @PutMapping("/equipement/{id}")
     Equipement updateUser(@RequestBody Equipement newEqu, @PathVariable Long id) {
         return equipementRepository.findById(id)
@@ -59,7 +57,6 @@ public class EquipementController {
                     return equipementRepository.save(equipement);
                 }).orElseThrow(() -> new UserNotFoundException(id));
     }
->>>>>>> 116ba3e3ffe3a27489ea5bbf90d18be52f5b6e1d
 
     @DeleteMapping("/equipement/{id}")
     String deleteUser(@PathVariable Long id){
