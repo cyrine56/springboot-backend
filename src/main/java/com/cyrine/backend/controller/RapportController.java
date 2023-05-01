@@ -2,12 +2,11 @@ package com.cyrine.backend.controller;
 
 
 
+import com.cyrine.backend.exception.UserNotFoundException;
 import com.cyrine.backend.model.Rapport;
 import com.cyrine.backend.repository.RapportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +22,14 @@ public class RapportController {
         return rapportRepository.findAll();
     }
 
-
+    @DeleteMapping("/rapport/{id}")
+    String deleteRapport(@PathVariable Long id){
+        if(!rapportRepository.existsById(id)){
+            throw new UserNotFoundException(id);
+        }
+        rapportRepository.deleteById(id);
+        return  "equipement with id "+id+" has been deleted success.";
+    }
 
 
 }
